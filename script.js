@@ -32,3 +32,21 @@ list.addEventListener('click', (event) => {
   event.target.classList.add('selected');
   
 })
+
+list.addEventListener('dblclick', (event) => { 
+  event.target.classList.add('completed');
+})
+
+
+let btnClear = document.createElement('button');
+btnClear.id = 'apaga-tudo';
+btnClear.innerText = 'Limpar';
+document.body.appendChild(btnClear);
+btnClear.addEventListener('click', function() {
+  let listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index++) {
+    listItem[index].remove();    
+  }
+})
+
+
