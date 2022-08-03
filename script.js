@@ -19,9 +19,11 @@ let list = document.querySelector('ol');
 btnAddTask.addEventListener('click', function() {
   let input = document.querySelector('input');
   let item = document.createElement('li');
+  item.className = 'itemList';
   item.innerText = input.value;
   list.appendChild(item);
   input.value = '';
+  localStorage.setItem('task', item);
 })
 
 let li = list.childNodes;
@@ -29,12 +31,17 @@ list.addEventListener('click', (event) => {
   for (let index = 0; index < li.length; index += 1) {
     li[index].classList.remove('selected') 
   };
-  event.target.classList.add('selected');
-  
+  if (event.target.className === 'itemList') {
+    event.target.classList.add('selected');
+  }  
 })
 
-list.addEventListener('dblclick', (event) => { 
-  event.target.classList.add('completed');
+list.addEventListener('dblclick', (event) => {
+  if (event.target.className.includes('completed')) {
+    event.target.classList.remove('completed')
+  } else {
+    event.target.classList.add('completed');    
+  }
 })
 
 
@@ -61,5 +68,7 @@ btnRemoveFinalized.addEventListener('click', function() {
     }
   }
 })
+
+
 
 

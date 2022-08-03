@@ -21,3 +21,7 @@ body {
 .completed {
   text-decoration: line-through solid black;
 }
+
+#remover-finalizados {
+  margin-left: 10px;
+}
