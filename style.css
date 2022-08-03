@@ -13,3 +13,7 @@ body {
 #criar-tarefa {
   margin-left: 10px;
 }
+
+.selected {
+  background-color: gray;
+}
