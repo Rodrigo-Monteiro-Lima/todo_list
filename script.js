@@ -24,14 +24,11 @@ btnAddTask.addEventListener('click', function() {
   input.value = '';
 })
 
-//let li = document.querySelectorAll('li');
+let li = list.childNodes;
 list.addEventListener('click', (event) => {
-  //console.log(li.length);
-  /*for (let index = 0; index < li.length; index += 1) {
+  for (let index = 0; index < li.length; index += 1) {
     li[index].classList.remove('selected') 
-  };*/
-  //list.childNodes.classList.remove('selected')
+  };
   event.target.classList.add('selected');
-  //li.classList.remove('selected') 
   
 })
