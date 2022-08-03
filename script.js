@@ -49,4 +49,17 @@ btnClear.addEventListener('click', function() {
   }
 })
 
+let btnRemoveFinalized = document.createElement('button');
+btnRemoveFinalized.id = 'remover-finalizados';
+btnRemoveFinalized.innerText = 'Limpar finalizados';
+document.body.appendChild(btnRemoveFinalized);
+btnRemoveFinalized.addEventListener('click', function() {
+  let listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index++) {
+    if (listItem[index].className.includes('completed')){
+      listItem[index].remove();
+    }
+  }
+})
+
 
