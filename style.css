@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.tasksEntries {
+  display: flex;
+}
+
+#criar-tarefa {
+  margin-left: 10px;
+}
