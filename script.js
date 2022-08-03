@@ -86,6 +86,18 @@ btnSave.addEventListener('click', function() {
 
 });
 
+let btnRemoveSelected = document.createElement('button');
+btnRemoveSelected.id = 'remover-selecionado';
+btnRemoveSelected.innerText = 'Remover selecionado';
+document.body.appendChild(btnRemoveSelected);
+btnRemoveSelected.addEventListener('click', function() {
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].className.includes('selected')) {
+      li[index].remove();
+    }    
+  }
+})
+
 // Parte do código foi feito com auxilio do exemplo sobre webStorage do Course
 function start() {
   if (localStorage.getItem('list') === null || localStorage.getItem('class') === null ) {
@@ -105,8 +117,4 @@ function start() {
 
 window.onload = function() {
   start();
-}
-
-
-
-
+};
