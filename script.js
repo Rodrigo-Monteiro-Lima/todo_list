@@ -1,7 +1,8 @@
+const container = document.querySelector('#container');
 function createList() {
   const list = document.createElement('ol');
   list.id = 'lista-tarefas';
-  document.body.appendChild(list);
+  container.appendChild(list);
 }
 createList();
 
@@ -9,7 +10,7 @@ function createButton() {
   const button = document.createElement('button');
   const divTask = document.querySelector('.tasksEntries');
   button.id = 'criar-tarefa';
-  button.innerText = 'Criar tarefa';
+  button.innerText = 'Adicionar';
   divTask.appendChild(button);
 }
 createButton();
@@ -19,11 +20,12 @@ const list = document.querySelector('ol');
 btnAddTask.addEventListener('click', () => {
   const input = document.querySelector('input');
   const item = document.createElement('li');
-  item.className = 'itemList';
-  item.innerText = input.value;
-  list.appendChild(item);
-  input.value = '';
-  // localStorage.setItem('task', item);
+  if (input.value !== '') {
+    item.className = 'itemList';
+    item.innerText = input.value;
+    list.appendChild(item);
+    input.value = '';
+  }
 });
 
 const li = list.childNodes;
@@ -46,8 +48,8 @@ list.addEventListener('dblclick', (event) => {
 
 const btnClear = document.createElement('button');
 btnClear.id = 'apaga-tudo';
-btnClear.innerText = 'Limpar';
-document.body.appendChild(btnClear);
+btnClear.innerText = '✖';
+container.appendChild(btnClear);
 btnClear.addEventListener('click', () => {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
@@ -58,7 +60,7 @@ btnClear.addEventListener('click', () => {
 const btnRemoveFinalized = document.createElement('button');
 btnRemoveFinalized.id = 'remover-finalizados';
 btnRemoveFinalized.innerText = 'Limpar finalizados';
-document.body.appendChild(btnRemoveFinalized);
+container.appendChild(btnRemoveFinalized);
 btnRemoveFinalized.addEventListener('click', () => {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
@@ -71,7 +73,7 @@ btnRemoveFinalized.addEventListener('click', () => {
 const btnSave = document.createElement('button');
 btnSave.id = 'salvar-tarefas';
 btnSave.innerText = 'Salvar lista';
-document.body.appendChild(btnSave);
+container.appendChild(btnSave);
 btnSave.addEventListener('click', () => {
   const wholeList = [];
   const listClass = [];
@@ -87,7 +89,7 @@ btnSave.addEventListener('click', () => {
 const btnRemoveSelected = document.createElement('button');
 btnRemoveSelected.id = 'remover-selecionado';
 btnRemoveSelected.innerText = 'Remover selecionado';
-document.body.appendChild(btnRemoveSelected);
+container.appendChild(btnRemoveSelected);
 btnRemoveSelected.addEventListener('click', () => {
   for (let index = 0; index < li.length; index += 1) {
     if (li[index].className.includes('selected')) {
@@ -99,7 +101,7 @@ btnRemoveSelected.addEventListener('click', () => {
 const btnClearLS = document.createElement('button');
 btnClearLS.id = 'clear-saved-list';
 btnClearLS.innerHTML = 'Limpar lista salva';
-document.body.appendChild(btnClearLS);
+container.appendChild(btnClearLS);
 btnClearLS.addEventListener('click', () => {
   localStorage.clear();
   const listItem = document.querySelectorAll('li');
@@ -110,8 +112,8 @@ btnClearLS.addEventListener('click', () => {
 
 const btnUp = document.createElement('button');
 btnUp.id = 'mover-cima';
-btnUp.innerHTML = 'Mover pra cima';
-document.body.appendChild(btnUp);
+btnUp.innerHTML = '⬆';
+container.appendChild(btnUp);
 btnUp.addEventListener('click', () => {
   for (let index = 0; index < li.length; index += 1) {
     if (li[index].className.includes('selected') && index !== 0) {
@@ -127,8 +129,8 @@ btnUp.addEventListener('click', () => {
 
 const btnDown = document.createElement('button');
 btnDown.id = 'mover-baixo';
-btnDown.innerHTML = 'Mover pra baixo';
-document.body.appendChild(btnDown);
+btnDown.innerHTML = '⬇';
+container.appendChild(btnDown);
 btnDown.addEventListener('click', () => {
   const item = document.querySelector('.selected');
   if (item && item.nextSibling !== null) {

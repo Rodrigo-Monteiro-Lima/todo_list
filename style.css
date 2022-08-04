@@ -4,6 +4,94 @@
 
 body {
   margin: 0;
+  background: linear-gradient(90deg , rgb(2 , 130 , 196) , lightgreen);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 580px;
+}
+
+input:focus {
+  border: 2px solid red;
+}
+
+ol {
+  min-height: 100px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+#buttonsContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  min-height: 350px;
+  max-height: fit-content;
+}
+
+button {
+  border-radius: 30px;
+  padding: 5px;
+  color: white;
+  border: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#clear-saved-list {
+  background-color: rgb(118 , 0 , 0);
+  border-color: rgb(118 , 0 , 0);
+  margin-left: 10px;
+}
+
+#remover-finalizados {
+  background-color: rgb(118 , 0 , 0);
+  border-color: rgb(118 , 0 , 0);
+  margin-left: 10px;
+}
+
+#remover-selecionado {
+  background-color: rgb(118 , 0 , 0);
+  border-color: rgb(118 , 0 , 0);
+  margin-left: 10px;
+}
+
+#criar-tarefa {
+  background-color: rgb(34 , 167 , 0);
+  border-color: rgb(34 , 167 , 0);
+  margin-left: 10px;
+}
+
+#mover-cima , #mover-baixo {
+  background-color: rgb(215 , 122 , 14);
+  border-color: rgb(215 , 122 , 14);
+  width: 60px;
+  font-size: 16px;
+}
+
+#salvar-tarefas {
+  background-color: rgb(2 , 130 , 196);
+  border-color: rgb(2 , 130 , 196);
+  margin-left: 10px;
+}
+
+#apaga-tudo {
+  background-color: rgb(118 , 0 , 0);
+  border-color: rgb(118 , 0 , 0);
+  width: 60px;
 }
 
 .tasksEntries {
@@ -18,10 +106,6 @@ body {
   margin-left: 10px;
 }
 
-#criar-tarefa {
-  margin-left: 10px;
-}
-
 .selected {
   background-color: gray;
 }
@@ -30,18 +114,28 @@ body {
   text-decoration: line-through solid black;
 }
 
-#remover-finalizados {
-  margin-left: 10px;
+#criar-tarefa:hover {
+  background-color: rgba(34 , 167 , 0 , 0.8);
+  cursor: pointer;
 }
 
-#salvar-tarefas {
-  margin-left: 10px;
+#clear-saved-list:hover , #remover-selecionado:hover , #remover-finalizados:hover {
+  background-color: rgba(118 , 0 , 0 , 0.8);
+  cursor: pointer;
+
 }
 
-#remover-selecionado {
-  margin-left: 10px;
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgba(215 , 122 , 14 , 0.8);
+  cursor: pointer;
 }
 
-#clear-saved-list {
-  margin-left: 10px;
+#salvar-tarefas:hover {
+  background-color: rgba(2 , 130 , 196 , 0.8);
+  cursor: pointer;
+}
+
+#apaga-tudo:hover {
+  background-color: rgba(118 , 0 , 0 , 0.8);
+  cursor: pointer;
 }
