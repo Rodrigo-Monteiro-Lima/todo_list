@@ -10,6 +10,14 @@ body {
   display: flex;
 }
 
+#mover-cima {
+  margin-left: 10px;
+}
+
+#mover-baixo {
+  margin-left: 10px;
+}
+
 #criar-tarefa {
   margin-left: 10px;
 }
@@ -34,3 +42,6 @@ body {
   margin-left: 10px;
 }
 
+#clear-saved-list {
+  margin-left: 10px;
+}
